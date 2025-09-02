@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Kumar - Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+</head>
+<body class="dark-bg">
+    <!-- Navigation Bar -->
+    <nav class="navbar dark-navbar">
+        <div class="logo">Dev<span style="font-weight:400;">Kumar</span></div>
+        <div class="nav-links">
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-github">
+            <a href="https://github.com/DEVKUMAR9012" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </nav>
+
+    <main class="contact-main">
+        <div class="contact-content-dark">
+            <h2 class="about-heading">Contact <span class="about-line"></span></h2>
+            <form class="contact-form-dark" action="https://formsubmit.co/dk25042008@gmail.com" method="POST" id="contactForm" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+                    <span class="email-error" style="display:none;color:#ff4d4d;font-size:0.95rem;">Please enter a valid email address.</span>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                </div>
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html">
+                <button type="submit" class="submit-btn home-btn">Send Message</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('contactForm');
+        var emailInput = form.email;
+        var errorSpan = emailInput.parentElement.querySelector('.email-error');
+        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        form.addEventListener('submit', function(e) {
+            if (!emailPattern.test(emailInput.value)) {
+                errorSpan.style.display = 'block';
+                e.preventDefault();
+            } else {
+                errorSpan.style.display = 'none';
+            }
+        });
+
+        emailInput.addEventListener('input', function() {
+            if (emailPattern.test(emailInput.value)) {
+                errorSpan.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Kumar - About</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+</head>
+<body class="dark-bg">
+    <!-- Navigation Bar -->
+    <nav class="navbar dark-navbar">
+        <div class="logo">Dev<span style="font-weight:400;">Kumar</span></div>
+        <div class="nav-links">
+            <a href="about.html" class="nav-link">About</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+        </div>
+        <div class="nav-github">
+            <a href="https://github.com/DEVKUMAR9012" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/dev-kumar-950376305" target="_blank" style="margin-left: 18px;"><i class="fab fa-linkedin"></i></a>
+            <a href="resume.pdf" target="_blank" style="margin-left: 18px;"><i class="fas fa-file-alt"></i></a>
+        </div>
+    </nav>
+
+    <main class="about-main">
+        <div class="about-left">
+            <h1 class="intro-title">Dev Kumar</h1>
+            <a href="contact.html" class="contact-link">Contact Me</a>
+            <section class="about-section">
+                <p class="about-desc sparkle-on-load about-desc-flydown" id="fly-letters">I'm Dev Kumar, a passionate developer skilled in C, C++, Java, Python, Ruby, HTML, CSS, and SQL. I love building user-friendly websites and applications.</p>
+            </section>
+        </div>
+        <div class="about-right">
+            <img src="devkipfp/dev.jpg" alt="Profile picture of Dev Kumar" class="profile-photo-large" />
+
+        </div>
+    </main>
+
+    <section class="skills-boxes-section">
+        <div class="skills-boxes-title">Skills</div>
+        <div class="skills-boxes-grid">
+            <div class="skill-box-anim">C</div>
+            <div class="skill-box-anim">C++</div>
+            <div class="skill-box-anim">Python</div>
+            <div class="skill-box-anim">JavaScript</div>
+            <div class="skill-box-anim">HTML</div>
+            <div class="skill-box-anim">CSS</div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+    <audio id="tunnSound" src="tunn.mp3" preload="auto"></audio>
+    <script>
+    // Only play sound on main button click
+    document.querySelectorAll('.home-btn, .contact-link').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var audio = document.getElementById('tunnSound');
+            audio.currentTime = 0;
+            audio.play();
+        });
+    });
+
+    // Fly letters animation on hover
+    (function() {
+      var el = document.getElementById('fly-letters');
+      var text = el.textContent;
+      el.innerHTML = '';
+      for (let i = 0; i < text.length; i++) {
+        var span = document.createElement('span');
+        span.textContent = text[i];
+        if (text[i] !== ' ') span.className = 'fly-letter';
+        el.appendChild(span);
+      }
+      el.addEventListener('mouseenter', function() {
+        el.classList.add('flying');
+        setTimeout(function() { el.classList.remove('flying'); }, 700);
+      });
+    })();
+    </script>
+</body>
+</html>
